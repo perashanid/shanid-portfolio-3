@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Demo personal info data
 const personalInfo = {

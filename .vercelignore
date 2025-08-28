@@ -1,0 +1,10 @@
+backend/
+*.java
+*.class
+*.jar
+*.war
+pom.xml
+mvnw
+mvnw.cmd
+.mvn/
+target/

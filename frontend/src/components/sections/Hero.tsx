@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChevronDown, Download, Github, Linkedin, Twitter, Mail, Users, MessageCircle } from 'lucide-react';
 
 // Demo personal info data
