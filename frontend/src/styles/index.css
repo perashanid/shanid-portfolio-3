@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-dark-charcoal bg-light-sage dark:text-light-sage dark:bg-dark-charcoal transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-warm-brown hover:bg-warm-brown/80 text-light-sage font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-light-sage hover:bg-light-sage/80 dark:bg-medium-gray dark:hover:bg-dark-charcoal text-dark-charcoal dark:text-light-sage font-medium py-2 px-4 rounded-lg transition-all duration-200 border border-medium-gray/30 dark:border-light-sage/30;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-medium-gray rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-medium-gray/20 dark:border-light-sage/20;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #715A5A, #44444E, #37353E);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .border-3 {
+    border-width: 3px;
+  }
+}
