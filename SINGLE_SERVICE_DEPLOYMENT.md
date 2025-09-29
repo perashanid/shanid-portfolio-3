@@ -39,7 +39,7 @@ Deploy your entire full-stack portfolio as ONE web service on Render.
 #### Build & Deploy Settings
 | Field | Value |
 |-------|-------|
-| **Build Command** | `cd frontend && npm install --include=dev && npm run build && cd ..` |
+| **Build Command** | `npm install && cd frontend && npm install --include=dev && npm run build && cd ..` |
 | **Start Command** | `npm start` |
 
 #### Advanced Settings
@@ -100,7 +100,7 @@ Region: Oregon (US West)
 Branch: main
 Root Directory: [LEAVE BLANK]
 Runtime: Node
-Build Command: cd frontend && npm install --include=dev && npm run build && cd ..
+Build Command: npm install && cd frontend && npm install --include=dev && npm run build && cd ..
 Start Command: npm start
 Instance Type: Free
 Auto-Deploy: Yes
