@@ -1,138 +1,144 @@
-import { Github, Linkedin, Mail, Phone, Twitter, Instagram, Heart } from 'lucide-react';
+import React from 'react';
+import { Github, ExternalLink, Mail, Heart } from 'lucide-react';
+import { contactInfo } from '../../data/portfolio';
 
 const Footer: React.FC = () => {
-  // Static personal info data
-  const personalInfo = {
-    name: 'Shanid Sajjatuz Islam',
-    email: 'shanid.sajjatuz@example.com',
-    phone: '+880 1234-567890',
-    githubUrl: 'https://github.com/shanidsajjatuz',
-    linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
-    resumeUrl: '/resume.pdf'
-  };
-
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/shanidsajjatuz',
-      icon: Github,
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/shanidsajjatuz',
-      icon: Linkedin,
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/shanidsajjatuz',
-      icon: Twitter,
-    },
-    {
-      name: 'Instagram',
-      url: 'https://instagram.com/shanidsajjatuz',
-      icon: Instagram,
-    },
-  ];
+  const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-dark-charcoal text-light-sage py-12">
-      <div className="container-max">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* About Section */}
-          <div className="md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">{personalInfo.name}</h3>
-            <p className="text-light-sage/80 mb-4">
-              Full Stack Developer passionate about creating innovative web solutions 
-              and building scalable applications with modern technologies.
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold">Shanid Sajjatuz Islam</h3>
+            <p className="text-gray-300 leading-relaxed">
+              Full-Stack Developer & Data Scientist passionate about creating 
+              innovative solutions that make a real impact.
             </p>
-            <p className="text-sm text-light-sage/60">
-              Available for freelance projects and collaborations.
-            </p>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Mail size={16} className="text-warm-brown" />
-                <a 
-                  href={`mailto:${personalInfo.email}`}
-                  className="hover:text-warm-brown transition-colors text-sm"
-                >
-                  {personalInfo.email}
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone size={16} className="text-warm-brown" />
-                <a 
-                  href={`tel:${personalInfo.phone}`}
-                  className="hover:text-warm-brown transition-colors text-sm"
-                >
-                  {personalInfo.phone}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Links & Social */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
-            <div className="space-y-3 mb-6">
-              <button
-                onClick={scrollToTop}
-                className="block hover:text-warm-brown transition-colors text-left text-sm"
-              >
-                Back to Top
-              </button>
+            <div className="flex space-x-4">
               <a
-                href={personalInfo.resumeUrl}
+                href={contactInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block hover:text-warm-brown transition-colors text-sm"
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                aria-label="GitHub"
               >
-                Download Resume
+                <Github size={20} />
+              </a>
+              <a
+                href={contactInfo.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                aria-label="CV"
+              >
+                <ExternalLink size={20} />
+              </a>
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={20} />
               </a>
             </div>
-            
-            {/* Social Links */}
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 bg-medium-gray hover:bg-warm-brown text-light-sage hover:text-white rounded-full transition-all duration-300 hover:scale-110"
-                    aria-label={social.name}
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold">Quick Links</h4>
+            <ul className="space-y-2">
+              {[
+                { name: 'About', href: '#about' },
+                { name: 'Projects', href: '#projects' },
+                { name: 'Skills', href: '#skills' },
+                { name: 'Contact', href: '#contact' }
+              ].map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => {
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="text-gray-300 hover:text-white transition-colors"
                   >
-                    <IconComponent size={18} />
-                  </a>
-                );
-              })}
-            </div>
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Featured Projects */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold">Featured Projects</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://survease-v2-uppv.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Survey Platform (Survease)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://bd-stock-market-api.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  BD Stock Market API
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://media-bias-a9x2.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Media Bias Detector
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://algotrade-v1.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  AlgoTrader Platform
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-medium-gray/30 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <p className="text-sm text-light-sage/60">
-                © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
-              </p>
+        {/* Bottom Section */}
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex items-center space-x-2 text-gray-300">
+              <span>© {currentYear} Shanid Sajjatuz Islam. Made with</span>
+              <Heart size={16} className="text-red-500" />
+              <span>and lots of coffee.</span>
             </div>
-            <div className="flex items-center text-sm text-light-sage/60">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 mx-1 text-warm-brown fill-current" />
-              <span>using React & Spring Boot</span>
-            </div>
+            
+            <button
+              onClick={scrollToTop}
+              className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
+            >
+              Back to Top
+            </button>
           </div>
         </div>
       </div>

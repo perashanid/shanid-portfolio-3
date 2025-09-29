@@ -1,6 +1,6 @@
-# Portfolio Website
+# Shanid Sajjatuz Islam - Portfolio Website
 
-A modern, responsive portfolio website built with Spring Boot backend and React frontend. Features a professional design with project showcase, skills visualization, and contact functionality.
+A modern, responsive portfolio website showcasing my projects, skills, and experience as a Full-Stack Developer and Data Scientist. Built with Spring Boot backend and React frontend.
 
 ## Features
 
@@ -222,6 +222,17 @@ For production, set these environment variables:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contact
+## 🚀 Live Demo
 
-For questions or support, please contact [your-email@example.com](mailto:your-email@example.com).
+Visit the live website: [Portfolio Website](https://portfolio-of-shanid.onrender.com)
+
+## 📞 Contact
+
+- **Email**: [shanidsajjatuz@gmail.com](mailto:shanidsajjatuz@gmail.com)
+- **GitHub**: [github.com/perashanid](https://github.com/perashanid)
+- **CV**: [shanid-cv.vercel.app](https://shanid-cv.vercel.app)
+- **Location**: Bangladesh
+
+---
+
+**Made with ❤️ and lots of coffee by Shanid Sajjatuz Islam**

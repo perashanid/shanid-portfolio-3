@@ -1,22 +1,35 @@
 export interface Project {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  detailedDescription: string;
   technologies: string[];
-  imageUrls: string[];
   liveUrl?: string;
-  repositoryUrl?: string;
-  category: string;
-  featured: boolean;
-  createdDate: string;
+  githubUrl?: string;
+  images: string[];
+  category: 'web-application' | 'frontend' | 'backend' | 'data-science' | 'game-development' | 'others';
+  featured?: boolean;
+}
+
+export interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  duration: string;
+  description: string[];
+  technologies: string[];
 }
 
 export interface Skill {
-  id: number;
   name: string;
-  category: string;
-  proficiencyLevel: number;
-  yearsOfExperience?: number;
-  iconUrl?: string;
+  level: number;
+  category: 'frontend' | 'backend' | 'database' | 'tools' | 'other';
+}
+
+export interface ContactInfo {
+  email: string;
+  phone?: string;
+  location: string;
+  linkedin?: string;
+  github?: string;
+  website?: string;
 }

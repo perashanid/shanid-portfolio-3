@@ -19,11 +19,13 @@
   },
   "keywords": [
     "portfolio",
-    "spring-boot",
+    "full-stack-developer",
+    "data-scientist",
     "react",
     "typescript",
-    "tailwindcss"
+    "tailwindcss",
+    "shanid-sajjatuz-islam"
   ],
-  "author": "Your Name",
+  "author": "Shanid Sajjatuz Islam",
   "license": "MIT"
 }
