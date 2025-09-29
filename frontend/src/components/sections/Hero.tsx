@@ -1,6 +1,7 @@
 import React from 'react';
 import { Github, ExternalLink, Mail, MapPin } from 'lucide-react';
 import { contactInfo } from '../../data/portfolio';
+import profileImage from '../../assets/profile.jpg';
 
 const Hero: React.FC = () => {
   return (
@@ -72,9 +73,17 @@ const Hero: React.FC = () => {
           <div className="relative">
             <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white dark:border-gray-700 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
               <img
-                src="/profile.jpg"
+                src={profileImage}
                 alt="Shanid Sajjatuz Islam"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  console.error('Profile image failed to load:', e);
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+                onLoad={() => {
+                  console.log('Profile image loaded successfully');
+                }}
               />
             </div>
             
