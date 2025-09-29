@@ -9,7 +9,7 @@ export const projects: Project[] = [
     technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Chart.js'],
     liveUrl: 'https://survease-v2-uppv.onrender.com',
     githubUrl: 'https://github.com/perashanid/survease_v2',
-    images: [],
+    images: ['/projects/survease.svg'],
     category: 'web-application',
     featured: true
   },
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Socket.io'],
     liveUrl: 'https://book-marketplace-bfo0.onrender.com',
     githubUrl: 'https://github.com/perashanid/Book-marketplace-v2',
-    images: [],
+    images: ['/projects/book-marketplace.svg'],
     category: 'web-application',
     featured: true
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
     liveUrl: 'https://campaignbuilder.onrender.com',
     githubUrl: 'https://github.com/perashanid/campaignBuilder',
-    images: [],
+    images: ['/projects/default.svg'],
     category: 'frontend'
   },
   {
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     technologies: ['Node.js', 'Express', 'Web Scraping', 'REST API'],
     liveUrl: 'https://bd-stock-market-api.onrender.com',
     githubUrl: 'https://github.com/perashanid/bd-stock-market-api',
-    images: [],
+    images: ['/projects/bd-stock-api.svg'],
     category: 'backend',
     featured: true
   },
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'Machine Learning', 'NLP', 'Flask', 'Web Scraping'],
     liveUrl: 'https://media-bias-a9x2.onrender.com',
     githubUrl: 'https://github.com/perashanid/Media-bias',
-    images: [],
+    images: ['/projects/default.svg'],
     category: 'data-science',
     featured: true
   },
@@ -163,8 +163,7 @@ export const skills: Skill[] = [
   { name: 'Express.js', level: 85, category: 'backend' },
   { name: 'Python', level: 85, category: 'backend' },
   { name: 'Flask', level: 80, category: 'backend' },
-  { name: 'Java', level: 75, category: 'backend' },
-  { name: 'Spring Boot', level: 70, category: 'backend' },
+
 
   // Database
   { name: 'MongoDB', level: 85, category: 'database' },

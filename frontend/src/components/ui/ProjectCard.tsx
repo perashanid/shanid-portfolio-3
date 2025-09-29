@@ -11,9 +11,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     <div className="card p-6 cursor-pointer group" onClick={onClick}>
       {/* Project Image */}
       <div className="relative mb-4 overflow-hidden rounded-lg">
-        {project.imageUrls && project.imageUrls.length > 0 ? (
+        {project.images && project.images.length > 0 ? (
           <img
-            src={project.imageUrls[0]}
+            src={project.images[0]}
             alt={project.title}
             className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
           />
@@ -93,9 +93,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
                 <ExternalLink size={16} />
               </a>
             )}
-            {project.repositoryUrl && (
+            {project.githubUrl && (
               <a
-                href={project.repositoryUrl}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}

@@ -1,6 +1,6 @@
 # Shanid Sajjatuz Islam - Portfolio Website
 
-A modern, responsive portfolio website showcasing my projects, skills, and experience as a Full-Stack Developer and Data Scientist. Built with Spring Boot backend and React frontend.
+A modern, responsive portfolio website showcasing my projects, skills, and experience as a Full-Stack Developer and Data Scientist. Built with Express.js backend and React frontend.
 
 ## Features
 
@@ -8,19 +8,18 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Project Showcase**: Display projects with filtering by category and technology
 - **Skills Visualization**: Interactive skill bars with proficiency levels
 - **Contact Form**: Functional contact form with email notifications
-- **Admin API**: RESTful APIs for managing portfolio content
-- **Modern Tech Stack**: Spring Boot 3.x + React 18 + TypeScript + Tailwind CSS
+- **RESTful API**: Clean Express.js APIs for portfolio data
+- **Modern Tech Stack**: Express.js + React 18 + TypeScript + Tailwind CSS
 
 ## Tech Stack
 
 ### Backend
-- Java 17+
-- Spring Boot 3.x
-- Spring Data JPA
-- Spring Web
-- Spring Boot Validation
-- Spring Boot Mail
-- H2 Database (development) / PostgreSQL (production)
+- Node.js 18+
+- Express.js 4.x
+- CORS for cross-origin requests
+- Helmet for security
+- Nodemailer for email functionality
+- Environment variables with dotenv
 
 ### Frontend
 - React 18+
@@ -34,31 +33,44 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 ## Getting Started
 
 ### Prerequisites
-- Java 17 or higher
-- Node.js 16 or higher
+- Node.js 18 or higher
 - npm or yarn
 
-### Backend Setup
+### Quick Start
+
+1. Install all dependencies:
+   ```bash
+   npm run install:all
+   ```
+
+2. Start both backend and frontend:
+   ```bash
+   npm run dev
+   ```
+
+   - Backend will start on `http://localhost:8080`
+   - Frontend will start on `http://localhost:3000`
+
+### Individual Setup
+
+#### Backend Setup
 
 1. Navigate to the backend directory:
    ```bash
    cd backend
    ```
 
-2. Run the Spring Boot application:
+2. Install dependencies:
    ```bash
-   ./mvnw spring-boot:run
+   npm install
    ```
 
-   The backend will start on `http://localhost:8080`
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-3. Access H2 Console (optional):
-   - URL: `http://localhost:8080/h2-console`
-   - JDBC URL: `jdbc:h2:mem:portfoliodb`
-   - Username: `sa`
-   - Password: `password`
-
-### Frontend Setup
+#### Frontend Setup
 
 1. Navigate to the frontend directory:
    ```bash
@@ -75,140 +87,143 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
    npm run dev
    ```
 
-   The frontend will start on `http://localhost:3000`
-
-### Full Stack Development
-
-For concurrent development, run both backend and frontend servers:
-
-```bash
-# Terminal 1 - Backend
-cd backend && ./mvnw spring-boot:run
-
-# Terminal 2 - Frontend  
-cd frontend && npm run dev
-```
-
 ## API Endpoints
 
-### Personal Information
-- `GET /api/personal-info` - Get personal information
-- `PUT /api/personal-info` - Update personal information
+### Health Check
+- `GET /api/health` - Check API status
 
-### Projects
-- `GET /api/projects` - Get all projects
-- `GET /api/projects/{id}` - Get project by ID
-- `GET /api/projects/featured` - Get featured projects
-- `GET /api/projects/categories` - Get project categories
-- `POST /api/projects` - Create new project
-- `PUT /api/projects/{id}` - Update project
-- `DELETE /api/projects/{id}` - Delete project
-
-### Skills
-- `GET /api/skills` - Get all skills
-- `GET /api/skills/categories` - Get skill categories
-- `POST /api/skills` - Create new skill
-- `PUT /api/skills/{id}` - Update skill
-- `DELETE /api/skills/{id}` - Delete skill
+### Portfolio Data
+- `GET /api/portfolio` - Get complete portfolio information including projects, skills, and contact info
 
 ### Contact
 - `POST /api/contact` - Submit contact form
-- `GET /api/contact/messages` - Get all contact messages (admin)
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@example.com", 
+    "message": "Hello, I'd like to discuss a project..."
+  }
+  ```
 
 ## Project Structure
 
 ```
 portfolio-website/
-├── backend/                 # Spring Boot application
-│   ├── src/main/java/com/portfolio/
-│   │   ├── controller/     # REST API controllers
-│   │   ├── service/        # Business logic layer
-│   │   ├── repository/     # Data access layer
-│   │   ├── model/          # JPA entities
-│   │   └── exception/      # Exception handling
-│   └── src/main/resources/
-│       ├── application.yml # Configuration
-│       └── data.sql       # Sample data
-├── frontend/               # React application
+├── backend/                # Express.js application
+│   ├── server.js          # Main server file
+│   ├── package.json       # Backend dependencies
+│   ├── .env               # Environment variables
+│   └── .env.example       # Environment template
+├── frontend/              # React application
 │   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── services/       # API service functions
-│   │   ├── types/          # TypeScript interfaces
-│   │   └── styles/         # CSS and styling
-│   └── public/            # Static assets
-└── .kiro/                 # Kiro configuration and specs
+│   │   ├── components/    # React components
+│   │   ├── services/      # API service functions
+│   │   ├── types/         # TypeScript interfaces
+│   │   ├── data/          # Static data
+│   │   └── styles/        # CSS and styling
+│   ├── public/           # Static assets
+│   ├── .env              # Frontend environment variables
+│   └── .env.example      # Environment template
+├── package.json          # Root package.json for scripts
+└── .kiro/               # Kiro configuration and specs
 ```
 
 ## Configuration
 
 ### Backend Configuration
-The backend uses `application.yml` for configuration. Key settings:
+The backend uses environment variables for configuration:
 
-- **Database**: H2 in-memory database for development
-- **CORS**: Configured for frontend origins
-- **Email**: SMTP configuration for contact form
+```bash
+PORT=8080
+FRONTEND_URL=http://localhost:3000
+NODE_ENV=development
+
+# Email configuration (optional)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+```
 
 ### Frontend Configuration
-The frontend uses Vite for build tooling with:
+The frontend uses Vite with environment variables:
 
-- **Proxy**: API calls proxied to backend during development
-- **Tailwind CSS**: Utility-first CSS framework
-- **TypeScript**: Type safety and better development experience
-
-## Sample Data
-
-The application comes with sample data including:
-- Personal information for John Doe
-- 4 sample projects with different categories
-- Skills across multiple categories (Programming Languages, Frameworks, Databases, Tools)
+```bash
+VITE_API_URL=http://localhost:8080/api
+```
 
 ## Customization
 
 ### Adding Your Information
-1. Update the sample data in `backend/src/main/resources/data.sql`
-2. Or use the API endpoints to update information programmatically
+1. Update the portfolio data in `backend/server.js`
+2. Modify the static data in `frontend/src/data/portfolio.ts`
 
 ### Styling
 - Modify `frontend/tailwind.config.js` for theme customization
-- Update `frontend/src/styles/index.css` for custom styles
+- Update component styles in the respective component files
 
 ### Email Configuration
-Update the email settings in `application.yml`:
-```yaml
-spring:
-  mail:
-    host: your-smtp-host
-    port: 587
-    username: your-email
-    password: your-password
+Update the email settings in `backend/.env`:
+```bash
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
 ```
 
 ## Deployment
 
-### Backend Deployment
-1. Build the JAR file:
+### Quick Deployment to Render
+
+1. **Prepare for deployment:**
    ```bash
-   ./mvnw clean package
+   # Windows
+   deploy.bat
+   
+   # Linux/Mac
+   ./deploy.sh
    ```
 
-2. Run the JAR:
-   ```bash
-   java -jar target/portfolio-backend-0.0.1-SNAPSHOT.jar
-   ```
+2. **Follow the detailed guide:**
+   - See `DEPLOYMENT_GUIDE.md` for complete step-by-step instructions
+   - Use `DEPLOYMENT_CHECKLIST.md` for form field values
 
-### Frontend Deployment
-1. Build for production:
-   ```bash
-   npm run build
-   ```
+### Manual Deployment Steps
 
-2. Serve the `dist` folder using a web server
+#### Backend (Web Service)
+1. Create new Web Service on Render
+2. Connect your GitHub repository
+3. Configure:
+   - Root Directory: `backend`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+   - Environment Variables:
+     - `NODE_ENV=production`
+     - `PORT=10000`
+     - `FRONTEND_URL=https://your-frontend-url.onrender.com`
+
+#### Frontend (Static Site)
+1. Create new Static Site on Render
+2. Connect same GitHub repository
+3. Configure:
+   - Root Directory: `frontend`
+   - Build Command: `npm install && npm run build`
+   - Publish Directory: `dist`
+   - Environment Variables:
+     - `VITE_API_URL=https://your-backend-url.onrender.com/api`
 
 ### Environment Variables
-For production, set these environment variables:
-- `SPRING_PROFILES_ACTIVE=prod`
-- `DATABASE_URL` (for PostgreSQL)
-- `MAIL_USERNAME` and `MAIL_PASSWORD`
+**Backend (.env):**
+```
+NODE_ENV=production
+PORT=10000
+FRONTEND_URL=https://your-frontend-name.onrender.com
+```
+
+**Frontend (.env):**
+```
+VITE_API_URL=https://your-backend-name.onrender.com/api
+```
 
 ## Contributing
 

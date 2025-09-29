@@ -4,7 +4,7 @@ import { Skill } from '../../types';
 // Demo skills data from data.sql
 const demoSkills: Skill[] = [
   // Programming Languages
-  { id: 1, name: 'Java', category: 'Programming Languages', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+
   { id: 2, name: 'JavaScript', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { id: 3, name: 'TypeScript', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
   { id: 4, name: 'Python', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
@@ -12,7 +12,7 @@ const demoSkills: Skill[] = [
   { id: 6, name: 'CSS3', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
 
   // Frameworks & Libraries
-  { id: 7, name: 'Spring Boot', category: 'Frameworks', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
+
   { id: 8, name: 'React', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
   { id: 9, name: 'Node.js', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
   { id: 10, name: 'Express.js', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },

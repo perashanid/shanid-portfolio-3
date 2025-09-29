@@ -20,9 +20,13 @@ export interface Experience {
 }
 
 export interface Skill {
+  id?: number;
   name: string;
-  level: number;
-  category: 'frontend' | 'backend' | 'database' | 'tools' | 'other';
+  level?: number;
+  category: 'frontend' | 'backend' | 'database' | 'tools' | 'other' | 'Programming Languages' | 'Frameworks' | 'Databases' | 'Tools' | 'Currently Learning';
+  proficiencyLevel?: number;
+  yearsOfExperience?: number;
+  iconUrl?: string;
 }
 
 export interface ContactInfo {

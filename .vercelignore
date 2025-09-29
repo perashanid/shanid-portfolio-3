@@ -1,10 +1,4 @@
-backend/
-*.java
-*.class
-*.jar
-*.war
-pom.xml
-mvnw
-mvnw.cmd
-.mvn/
-target/
+# Node.js backend files that shouldn't be deployed with frontend
+backend/node_modules/
+backend/.env
+backend/npm-debug.log*
